@@ -6,6 +6,7 @@ use Arnonm\DDBlueprintAddon\Traits\HasNamespace;
 use Arnonm\DDBlueprintAddon\Traits\HasPhpHelpers;
 use Arnonm\DDBlueprintAddon\Traits\HasStubPath;
 use Blueprint\Generators\AbstractClassGenerator;
+use Blueprint\Tree;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
 class ContractGenerator extends AbstractClassGenerator
@@ -23,8 +24,11 @@ class ContractGenerator extends AbstractClassGenerator
         $this->files = $files;
     }
 
-    public function handle(array $output, array $contracts): array
+    public function handle(Tree $tree, array $output, array $contracts): array
     {
+        if (!$tree->models()) {
+            return $output;
+        }
         foreach ($contracts as $contract) {
             $stub = $this->getContractStub($contract);
             $path = $this->outputContractsObject($contract);

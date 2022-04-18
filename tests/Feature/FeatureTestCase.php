@@ -34,5 +34,8 @@ class FeatureTestCase extends TestCase
         $this->blueprint->registerLexer(new ModelLexer());
         $this->blueprint->registerLexer(new ControllerLexer(new StatementLexer()));
         $this->blueprint->registerGenerator($this->subject);
+
+        $this->stubPath = dirname(__DIR__ ,2) . DIRECTORY_SEPARATOR .'src'. DIRECTORY_SEPARATOR. '..'. DIRECTORY_SEPARATOR .'stubs'. DIRECTORY_SEPARATOR;
+
     }
 }

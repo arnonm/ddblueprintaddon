@@ -1,5 +1,6 @@
 {
-    "name": "Arnonm/DDBlueprintAddon",
+    "name": "arnonm/ddblueprintaddon",
+    "type": "project",
     "description": "Generate Domain files from your laravel blueprint!",
     "keywords": [
         "arnonm",
@@ -8,20 +9,19 @@
         "pest",
         "pestphp"
     ],
-    "homepage": "",
     "license": "MIT",
     "authors": [
         {
             "name": "Arnon Meshoulam",
             "email": "arnonm.dev@gmail.com",
-            "homepage": "",
+            "homepage": "https://github.com/arnonm",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.0",
         "jasonmccreary/laravel-test-assertions": "^2.1",
-        "laravel-shift/blueprint": "^2.3"
+        "laravel-shift/blueprint": "@dev"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "DDBlueprintAddon\\": "src/"
+            "Arnonm\\DDBlueprintAddon\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Arnonm\\DDBlueprintAddon\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -45,7 +45,10 @@
         "test": "vendor/bin/pest"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "laravel": {
@@ -55,5 +58,12 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../test_of_shift_blueprint/package/blueprint"
+
+        }
+    ]
 }

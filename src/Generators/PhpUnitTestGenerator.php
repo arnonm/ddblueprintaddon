@@ -28,6 +28,10 @@ class PhpUnitTestGenerator extends AbstractClassGenerator
 
     public function handle(Tree $tree, array $output): array
     {
+        if (!$tree->models()) {
+            return $output;
+        }
+
         $stub = $this->getTestStub(false );
 
         /** @var \Blueprint\Models\Model $model */

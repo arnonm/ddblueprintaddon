@@ -27,6 +27,9 @@ class FactoryGenerator extends AbstractClassGenerator
 
     public function handle(Tree $tree, array $output): array
     {
+        if (!$tree->models()) {
+            return $output;
+        }
         $stub = $this->getFactoryStub();
 
         /** @var \Blueprint\Models\Model $model */

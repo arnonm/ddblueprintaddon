@@ -27,6 +27,10 @@ class PestTestGenerator extends AbstractClassGenerator
 
     public function handle(Tree $tree, array $output): array
     {
+        if (!$tree->models()) {
+            return $output;
+        }
+
         $stub = $this->getTestStub();
 
         /** @var \Blueprint\Models\Model $model */

@@ -42,7 +42,7 @@ class DDBlueprintGenerator extends AbstractClassGenerator implements Generator
         $output = [];
 
         $contractGenerator = new ContractGenerator($this->files);
-        $output = $contractGenerator->handle($output, ['DataValueObject', 'Factory']);
+        $output = $contractGenerator->handle($tree, $output, ['DataValueObject', 'Factory']);
 
         $dataObjectGenerator = new DataObjectGenerator($this->files);
         $output = $dataObjectGenerator->handle($tree, $output);

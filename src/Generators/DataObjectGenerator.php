@@ -29,6 +29,9 @@ class DataObjectGenerator extends AbstractClassGenerator
 
     public function handle(Tree $tree, array $output): array
     {
+        if (!$tree->models()) {
+            return $output;
+        }
         $stub = $this->getDataObjectStub();
 
         /** @var \Blueprint\Models\Model $model */

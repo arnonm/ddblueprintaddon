@@ -5,9 +5,9 @@ namespace Arnonm\DDBlueprintAddon\Tests;
 
 use Blueprint\BlueprintServiceProvider;
 use Arnonm\DDBlueprintAddon\DDBlueprintAddonServiceProvider;
+use Orchestra\Testbench\TestCase as BaseTestCase;
 
-
-class TestCase extends \Orchestra\Testbench\TestCase
+class TestCase extends BaseTestCase
 {
     protected function getEnvironmentSetUp($app): void
     {
