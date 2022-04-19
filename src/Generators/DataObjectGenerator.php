@@ -45,7 +45,7 @@ class DataObjectGenerator extends AbstractClassGenerator
         return $output;
     }
 
-    protected function DataObjectStrReplace(string $stub, $name, $className)
+    protected function DataObjectStrReplace(string $stub, $name, $className): string
     {
         $stub = str_replace('{{ namespace }}', $this->getDataObjectsNamespace(), $stub);
         $stub = str_replace( '{{ contractnamespace }}', $this->getContractsNamespace().'\DataValueObjectContract', $stub);
@@ -57,7 +57,7 @@ class DataObjectGenerator extends AbstractClassGenerator
 
 
 
-    protected function buildConstructor(Model $model)
+    protected function buildConstructor(Model $model): string
     {
 
         $constructor = 'public function __construct('.PHP_EOL;
@@ -105,7 +105,7 @@ class DataObjectGenerator extends AbstractClassGenerator
     }
 
 
-    private function buildArray(Model $model)
+    private function buildArray(Model $model): string
     {
         $array = PHP_EOL;
         $array .= 'public function toArray(): array'. PHP_EOL;

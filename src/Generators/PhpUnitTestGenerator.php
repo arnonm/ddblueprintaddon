@@ -69,7 +69,7 @@ class PhpUnitTestGenerator extends AbstractClassGenerator
         return $stub;
     }
 
-    protected function TestStrReplace(string $stub, $name, $className)
+    protected function TestStrReplace(string $stub, $name, $className): string
     {
         $stub = str_replace('{{ namespace }}', $this->getTestsNamespace(), $stub);
         $stub = str_replace( '{{ contractnamespace }}', $this->getContractsNamespace().'\\FactoryContract', $stub);

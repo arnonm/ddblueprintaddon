@@ -50,7 +50,7 @@ class ContractGenerator extends AbstractClassGenerator
         return $path;
     }
 
-    protected function ContractsStrReplace(string $stub)
+    protected function ContractsStrReplace(string $stub): string
     {
         $stub = str_replace('{{ namespace }}', $this->getContractsNamespace(), $stub);
         return $stub;

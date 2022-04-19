@@ -5,6 +5,7 @@ namespace Arnonm\DDBlueprintAddon;
 
 use Blueprint\Blueprint;
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class DDBlueprintAddonServiceProvider extends ServiceProvider implements DeferrableProvider
@@ -13,7 +14,7 @@ class DDBlueprintAddonServiceProvider extends ServiceProvider implements Deferra
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot():void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -22,14 +23,16 @@ class DDBlueprintAddonServiceProvider extends ServiceProvider implements Deferra
         }
     }
 
-    public function register()
+    public function register(): void
     {
+        /* @var \Illuminate\Contracts\Foundation\Application $app */
         $this->app->singleton(DDBlueprintGenerator::class, function ($app) {
             $generator = new DDBlueprintGenerator($app['files']);
             
             return $generator;
         });
 
+        /* @var \Illuminate\Contracts\Foundation\Application $app */
         $this->app->extend(Blueprint::class, function (Blueprint $blueprint, $app) {
             $blueprint->registerGenerator($app[DDBlueprintGenerator::class]);
             
@@ -40,9 +43,8 @@ class DDBlueprintAddonServiceProvider extends ServiceProvider implements Deferra
     /**
      * Get the services provided by the provider.
      *
-     * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [
             'command.blueprint.build',

@@ -67,7 +67,7 @@ class FactoryGenerator extends AbstractClassGenerator
         return $stub;
     }
 
-    protected function FactoryStrReplace(string $stub, $name, $className)
+    protected function FactoryStrReplace(string $stub, $name, $className):string
     {
         $stub = str_replace('{{ namespace }}', $this->getFactoryNamespace(), $stub);
         $stub = str_replace( '{{ contractnamespace }}', $this->getContractsNamespace().'\\FactoryContract', $stub);
@@ -78,7 +78,7 @@ class FactoryGenerator extends AbstractClassGenerator
         return $stub;
     }
 
-    private function buildArray(Model $model)
+    private function buildArray(Model $model): string
     {
         $array = PHP_EOL;
         foreach ($model->columns() as $column) {
