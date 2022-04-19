@@ -25,10 +25,12 @@
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
+        "nunomaduro/larastan": "^2.0",
         "orchestra/testbench": "^7.0",
         "pestphp/pest": "^1.21.1",
+        "phpstan/phpstan": "^1.5",
         "phpunit/phpunit": "^9.3",
-        "vimeo/psalm": "^4.0"
+        "vimeo/psalm": "^4.22"
     },
     "autoload": {
         "psr-4": {
