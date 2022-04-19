@@ -29,8 +29,6 @@ class DDBlueprintGenerator extends AbstractClassGenerator implements Generator
     /** @var array */
     private $imports = [];
 
-    /** @var array */
-    private $tasks = [];
 
     public function __construct($files)
     {

@@ -45,7 +45,7 @@ class ContractGenerator extends AbstractClassGenerator
         $path = str_replace('App/', 'app/', $path);
 
         if ( !$this->files->exists(dirname($path))) {
-            $this->files->makeDirectory(dirname($path), 0755, true);
+            $this->files->makeDirectory(dirname($path));
         }
         return $path;
     }

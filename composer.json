@@ -17,6 +17,7 @@
             "homepage": "https://github.com/arnonm",
             "role": "Developer"
         }
+
     ],
     "require": {
         "php": "^8.0",
@@ -55,7 +56,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Arnon\\DDBlueprintAddon\\BlueprintDDAddonServiceProvider"
+                "Arnonm\\DDBlueprintAddon\\DDBlueprintAddonServiceProvider"
             ]
         }
     },
@@ -67,5 +68,6 @@
             "url": "../test_of_shift_blueprint/package/blueprint"
 
         }
+
     ]
 }
